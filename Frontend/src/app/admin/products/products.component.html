@@ -1,0 +1,31 @@
+<div class="container" style="padding: 10px">
+    <h1>Products Admin</h1>
+  <button class="btn btn-primary mb-3" (click)="addProduct()"><i class="bi bi-plus-square-fill"></i> Add New Product</button>
+  <button style="margin-left:8px" (click)="openDialogbox()" class="btn btn-secondary mb-3"><i class="bi bi-envelope-fill"></i> Send Email</button>
+  <div class="container row">
+    <div class="col-md-6">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>
+              <button type="button" class="btn btn-primary" (click)="viewProduct(product.id)">Details <i class="bi bi-sticky-fill"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <app-viewproduct *ngIf="action === 'view'" [product]="selectedProduct" (productDeletedEvent)="refreshData()"></app-viewproduct>
+      <app-addproduct *ngIf="action === 'edit' || action === 'add'" [product]="selectedProduct" (productAddedEvent)="refreshData()"></app-addproduct>
+    </div>
+  </div>
+  </div>

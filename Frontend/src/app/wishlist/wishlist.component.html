@@ -1,0 +1,109 @@
+<!-- <div class="container row">
+    <div class="col-md-2">
+        <h1>Books</h1>
+    </div>
+    <div class="col-md-10 custom-products-cart-container">
+        <div class="offset-md-8">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <br>
+                    <a href="#" class="btn btn-info btn-lg" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <span class="fa fa-shopping-cart">
+                            Books Added In Cart:
+                        </span>
+                        <span class="caret">{{cartBooks.length}}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-cart" role="menu">
+                        <li *ngFor="let item of cartBooks">
+                            <div class="item product-cart-item row">
+                                <div class="col-md-8" *ngIf="item">{{item.name}}</div>
+                                <div class="col-md-4" *ngIf="item"><strong>${{item.price}}</strong></div>
+                                <div class="col-md-4" *ngIf="item">{{item.img}}</div>
+                            </div>
+                        </li>
+                        <hr>
+                        <li><a class="btn btn-small btn-success" role="button" (click)="goToCart()">View Cart</a></li>
+                        <br>
+                        <li *ngIf="cartBooks.length > 0">
+                            <a class="btn btn-small btn-warning" role="button" (click)="emptyCart()">Empty Cart</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+-->
+
+<!-- <div class="container" style="padding:5px">
+    <div class="row">
+        <div class="col-md-2 offset-md-10" *ngIf="cartBooks.length > 0">
+            <a class="btn btn-small btn-warning" role="button" (click)="emptyCart()">Empty Cart</a>
+        </div>
+    </div>
+
+    <div class="row" *ngFor="let item of cartBooks" style="padding: 10px">
+        <div class="col-sm-2"> 
+            <img *ngIf="item" src="{{item.retrievedImage}}" style="width:80px; height:auto"> 
+        </div>
+        <div class="col-md-7" style="padding: 10px">
+            <div *ngIf="item"><strong>{{item.name}}</strong></div>
+            <div *ngIf="item"> Product Id: {{item.id}}</div>
+            <div *ngIf="item"><strong>${{item.price}}</strong></div>
+        </div>
+        <div class="col">
+            <a class="btn btn-small btn-outline-primary" role="button" (click)="removeItem()">X</a>
+        </div>
+    </div>
+</div> -->
+
+<div class="container">
+    <ng-container *ngIf="wishlist.length != 0">
+    <div class="card-table">
+        <div class="card-product">
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>Sr.No</th>
+                        <th>Product Name</th>
+                        <th>Product Image</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of wishlist">
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td><img style="width: 120px;"src="{{item.imageURL}}" alt="" class=""></td>
+                        <td style="width: 25%;" >{{item.description}}</td>
+                        <td style="width: 12%;" >{{item.price}}</td>
+                        <td style="width: 12%;" >{{item.categoryId}}</td>
+                        
+                        <td>
+                            <mat-icon style="color: red;">delete</mat-icon>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"></td>
+                        <td><button class="btn btn-danger">Empty WishList</button></td>
+                        <td><button routerLink="/shop" class="btn btn-primary">Shop More</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </ng-container>
+</div>
+<div class="container">
+    <ng-container *ngIf="wishlist.length ==0">
+        <div class="card">
+            <h2><strong> WishLists</strong></h2>
+        </div>
+        <div class="center">
+            <img src="https://aquamarineexotic.com/adminpanel/assets/images/empty-wishlist.png" alt="">
+            <h4><strong>Empty WishList</strong></h4>
+        </div>
+    </ng-container>
+</div>
+

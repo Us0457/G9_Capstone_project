@@ -1,0 +1,29 @@
+<h1>Product Details</h1>
+
+    <table class="table table-bordered">
+        <tr>
+            <td><strong>Product Id</strong></td>
+            <td>{{product.id}}</td>
+        </tr>
+        <tr>
+            <td><strong>Product Name</strong></td>
+            <td>{{product.name}}</td>
+        </tr>
+        <tr>
+            <td><strong>Product Category</strong></td>
+            <td>{{product.categoryId}}</td>
+        </tr>
+        <tr>
+            <td><strong>Product Description</strong></td>
+            <td>{{product.description}}</td>
+        </tr>
+        <tr>
+            <td><strong>Product Price</strong></td>
+            <td>{{product.price}}</td>
+        </tr>
+    </table>
+    <br>
+    <img src="{{product.retrievedImage}}" height="200" width="200">
+    <br><br>
+    <button  class="btn btn-small btn-warning" (click)="editProduct()">Edit Details <i class="bi bi-pen-fill"></i></button> 
+    <button  class="btn btn-small btn-danger" (click)="deleteProduct()">Delete Product <i class="bi bi-trash-fill"></i></button>

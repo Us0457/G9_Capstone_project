@@ -1,0 +1,30 @@
+<h1>{{product.id == null ? 'Add' : 'Edit'}} Product - {{product.id}}</h1>
+<form>
+  <label for="name">Product Name</label>
+  <input type="text" class="form-control" id="name" placeholder="Product Name" [(ngModel)]="product.name" name="name">
+
+  <label for="category">Product Category</label>
+  <input type="text" class="form-control" id="category" placeholder="Product Category" name="category" [(ngModel)]="product.categoryId">
+
+  <label for="description">Product Description</label>
+  <input type="text" class="form-control" id="description" placeholder="Product Description" name="description" [(ngModel)]="product.description">
+
+  <label for="price">Product Price</label>
+  <input type="text" class="form-control" id="price" placeholder="Product Price" name="price" [(ngModel)]="product.price">
+  <br>
+  <button mat-raised-button (click)="openDialogbox()">Select Image <i class="bi bi-file-image-fill"></i></button>
+  <br>
+  <p *ngIf="ImgSelected">You have selected:</p>
+  <img *ngIf="ImgSelected" src="{{ImageSrc}}"  width="100px" height="120">
+  <br>
+  <button type="button" class="btn btn-success" (click)="saveProduct()">Save Product <i class="bi bi-save-fill"></i></button>
+</form>
+<hr>
+<h2>Upload CSV</h2>
+<div class="text-center form-group">
+  <input class="form-control-file" type="file" (change)="onChange($event)">
+  <button (click)="onUpload()" 
+      class="btn btn-success">
+      Upload <i class="bi bi-cloud-upload-fill"></i>
+  </button>
+</div>

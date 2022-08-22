@@ -1,0 +1,21 @@
+<h1>Category Details</h1>
+
+    <table class="table table-bordered">
+        <tr>
+            <td><strong>category Id</strong></td>
+            <td>{{category.id}}</td>
+        </tr>
+        <tr>
+            <td><strong>Category Name</strong></td>
+            <td>{{category.categoryName}}</td>
+        </tr>
+        <tr>
+            <td><strong>category Description</strong></td>
+            <td>{{category.description}}</td>
+        </tr>
+    </table>
+    <br>
+    <img src="{{category.imageUrl}}" height="200" width="200">
+    <br><br>
+    <button  class="btn btn-small btn-warning" (click)="editcategory()">Edit Details <i class="bi bi-pen-fill"></i></button> 
+    <button  class="btn btn-small btn-danger" (click)="deleteCategory()">Delete category <i class="bi bi-trash-fill"></i></button>

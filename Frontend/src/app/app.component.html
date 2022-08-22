@@ -1,0 +1,94 @@
+<!-- <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="navbar-nav">
+            <li class="nav-item"><div class="nav-link" routerLink="/shop"><i class="bi bi-bag-fill"></i> Shop</div></li>
+            <li class="nav-item"><div class="nav-link" routerLink="/admin/users"><i class="bi bi-people-fill"></i> Users</div></li>
+            <li class="nav-item"><div class="nav-link" routerLink="/admin/products"><i class="bi bi-box"></i> Products</div></li>
+            <li class="nav-item"><div class="nav-link" routerLink="/cart"><i class="bi bi-box"></i> Products</div></li>
+            <li class="nav-item"><div class="nav-link" routerLink="/wishlist"><i class="bi bi-box"></i> Products</div></li>
+            <li class="nav-item"><div class="nav-link" routerLink="/"><i class="bi bi-box"></i> Products</div></li>
+        </div>
+    </nav>
+</header> 
+<router-outlet></router-outlet>
+<app-footer></app-footer> -->
+
+<header>
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a href="/shop" class="navbar-brand">ShopForhome</a>
+      <ul class="navbar-nav mr-auto" routerLinkActive="active">
+        <li class="nav-item">
+          <a href="/shop" class="nav-link" routerLink="shop"><i class="bi bi-bag-fill"></i> Shop</a>
+        </li>
+        <li class="nav-item">
+          <a href="/wishlist" class="nav-link" *ngIf="isLoggedIn" routerLink="wishlist"><i class="bi bi-heart-fill"></i> Wishlist</a>
+        </li>
+        <li class="nav-item">
+          <a href="/cart" class="nav-link" *ngIf="isLoggedIn" routerLink="cart"><i class="bi bi-cart-check-fill"></i> Cart </a>
+        </li>
+        <li class="nav-item">
+            <a href="/admin/users" class="nav-link" *ngIf="showAdminBoard" routerLink="admin/users"><i class="bi bi-people-fill"></i> Users </a>
+        </li>
+        <li class="nav-item">
+            <a href="/admin/products" class="nav-link" *ngIf="showAdminBoard" routerLink="admin/products"><i class="bi bi-box"></i> Products </a>
+        </li>
+        <li class="nav-item">
+          <a href="/admin/category" class="nav-link" *ngIf="showAdminBoard" routerLink="admin/category"><i class="bi bi-tags-fill"></i> Categories</a>
+      </li>
+
+
+      </ul>
+      
+      <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+        <li class="nav-item">
+          <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a href="/login" class="nav-link" routerLink="login">Login</a>
+        </li>
+      </ul>
+  
+      <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+        <li class="nav-item">
+          <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+        </li>
+        <li class="nav-item">
+          <a href class="nav-link" (click)="logout()">LogOut</a>
+        </li>
+      </ul>
+    </nav>
+
+  </header> 
+
+  <!-- <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="navbar-nav">
+            <li class="nav-item"><div class="nav-link" routerLink="/shop" >Shop</div></li>
+            <li class="nav-item"><div *ngIf="!isLoggedIn" style="margin-right: 5px" class="nav-link" routerLink="/cart" ><span matBadge="{{totalItem}}" matBadgeOverlap="false" matBadgeSize="small">Cart</span></div></li>
+            <li class="nav-item"><div *ngIf="!isLoggedIn" class="nav-link" routerLink="/wishlist" >Wishlist</div></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Admin
+                </a>
+                <div class="dropdown-menu" *ngIf="showAdmin" aria-labelledby="navbarDropdown">
+                    <a routerLink="/admin/users" class="dropdown-item">Users</a>
+                    <a routerLink="/admin/books" class="dropdown-item">Books</a>
+                    <a routerLink="/admin/products" class="dropdown-item">Products</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Accounts
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a routerLink="/login" class="dropdown-item">Login</a>
+                    <a routerLink="#" (click)="logout()" class="dropdown-item">Logout</a>
+                    <a routerLink="/register" class="dropdown-item">Register</a>
+                </div>
+            </li>
+        </div>
+    </nav>
+</header>  -->
+  <router-outlet></router-outlet>

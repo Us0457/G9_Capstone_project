@@ -1,0 +1,34 @@
+<div class="col-md-12">
+    <div class="card card-container">
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <h2>Send Email</h2>
+            <img src="https://png.pngtree.com/png-vector/20190927/ourmid/pngtree-email-icon-png-image_1757854.jpg" style="width: 100px; height:100px" class="center">
+            <div class="form-group">
+                <label for="email">To</label>
+                <input type="text" class="form-control" name="recipient" [(ngModel)]="form.recipient" required
+                    #recipient="ngModel" />
+                <div class="alert alert-danger" role="alert" *ngIf="recipient.errors && f.submitted">
+                    Email is required!
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" class="form-control" name="subject" [(ngModel)]="form.subject" required
+                    minlength="5" #subject="ngModel" />
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Message Body</label>
+                <input type="text" class="form-control" name="msgBody" [(ngModel)]="form.msgBody" required
+                    minlength="5" #msgBody="ngModel" />
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary btn-block">
+                    Send
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

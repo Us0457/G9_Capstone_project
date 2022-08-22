@@ -1,0 +1,30 @@
+<div class="container" style="padding: 10px">
+    <h1>Users Admin</h1>
+    <button class="btn btn-primary mb-3" (click)="addUser()"><i class="bi bi-plus-square-fill"></i> Add User</button>
+    <div class="container row">
+      <div class="col-md-6">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users" >
+          <td>{{user.id}}</td>
+          <td>{{user.firstName}}</td>
+          <td>{{user.lastName}}</td>
+          <td><button type="button" class="btn btn-primary" (click)="viewUser(user.id)">Details <i class="bi bi-sticky-fill"></i></button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <app-adduser *ngIf="action === 'edit' || action === 'add'"  [user]="selectedUser"  (userAddedEvent)="refreshData()"></app-adduser>
+      <app-viewuser *ngIf="action === 'view'" [user]="selectedUser" (userDeletedEvent)="refreshData()"></app-viewuser>
+    </div>
+  </div>
+</div>

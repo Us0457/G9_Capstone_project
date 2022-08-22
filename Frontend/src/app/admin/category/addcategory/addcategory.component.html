@@ -1,0 +1,25 @@
+<h1>{{category.id == null ? 'Add' : 'Edit'}} Category - {{category.id}}</h1>
+<form>
+  <label for="name">Category Name</label>
+  <input type="text" class="form-control" id="name" placeholder="Category Name" [(ngModel)]="category.categoryName" name="name">
+
+  <label for="description">Category Description</label>
+  <input type="text" class="form-control" id="description" placeholder="Category Description" name="description" [(ngModel)]="category.description">
+
+  <br>
+  <button mat-raised-button (click)="openDialogbox()">Select Image <i class="bi bi-file-image-fill"></i></button>
+  <br>
+  <p *ngIf="ImgSelected">You have selected:</p>
+  <img *ngIf="ImgSelected" src="{{ImageSrc}}"  width="100px" height="120">
+  <br>
+  <button type="button" class="btn btn-success" (click)="saveCategory()">Save Category <i class="bi bi-save-fill"></i></button>
+</form>
+<hr>
+<!-- <h2>Upload CSV</h2>
+<div class="text-center form-group">
+  <input class="form-control-file" type="file" (change)="onChange($event)">
+  <button (click)="onUpload()" 
+      class="btn btn-success">
+      Upload <i class="bi bi-cloud-upload-fill"></i>
+  </button>
+</div> -->

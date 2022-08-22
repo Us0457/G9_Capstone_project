@@ -2,7 +2,7 @@ Steps for running this ShopForHome Webapp.
 
 Step 1: First import the "ecommerce.sql" file in MySQL Workbench.
 Step 2: Now move inside the frontend folder and right click and "Open in terminal", then press "code ." to view it inside VS code.
-Step 3: Run the command "npm install" and then run "ng serve --open".
+Step 3: Run the command "npm install --force" and then run "ng serve --open".
 Step 4: Import the "ecommerce-webapp" folder inside the Eclipse workspace and run as a Java application.
 
 Steps for Bulk upload of products:

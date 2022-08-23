@@ -18,6 +18,7 @@ export class ShopComponent implements OnInit {
   public filterCategory : any;
   public productListReceived : any;
   public imageList : any;
+  isSelected:boolean = false;
   clicked = false;
 
   constructor(
@@ -48,6 +49,7 @@ export class ShopComponent implements OnInit {
     }
     this.cartService.addCart(cartObj);
     this.toastr.success('Added to Cart!');
+    this.isSelected = true;
   }
 
   removeCartItem(cartItem:any){
@@ -75,7 +77,7 @@ export class ShopComponent implements OnInit {
   filterCategoryId(id:any){
     this.filterCategory = this.productList
     .filter((a:any)=>{
-      if (a.id == id ||  id==''){
+      if (a.categoryId == id ||  id==''){
         return a;
       }
     })

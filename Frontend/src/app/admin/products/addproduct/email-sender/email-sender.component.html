@@ -1,14 +1,22 @@
 <div class="col-md-12">
     <div class="card card-container">
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpf2zcWJYAi-XvBJ9JW8iTbg2yBm0Fa52RiCLtRvfYZCV3AJfZJgeXffUBOiS8HDg0VEQ&usqp=CAU" width="30" height="30" class="d-inline-block align-top" alt="">
+              <strong>  ShopForHome - Email</strong>
+            </a>
+          </nav>
         <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-            <h2>Send Email</h2>
             <img src="https://png.pngtree.com/png-vector/20190927/ourmid/pngtree-email-icon-png-image_1757854.jpg" style="width: 100px; height:100px" class="center">
             <div class="form-group">
                 <label for="email">To</label>
-                <input type="text" class="form-control" name="recipient" [(ngModel)]="form.recipient" required
+                <input type="email" class="form-control" name="recipient" [(ngModel)]="form.recipient" required email
                     #recipient="ngModel" />
                 <div class="alert alert-danger" role="alert" *ngIf="recipient.errors && f.submitted">
-                    Email is required!
+                    <div *ngIf="recipient.errors['required']">Email is required</div>
+                    <div *ngIf="recipient.errors['email']">
+                      Email must be valid!
+                    </div>
                 </div>
             </div>
 
@@ -16,16 +24,29 @@
                 <label for="subject">Subject</label>
                 <input type="text" class="form-control" name="subject" [(ngModel)]="form.subject" required
                     minlength="5" #subject="ngModel" />
-            </div>
+                <div class="alert alert-danger" role="alert" *ngIf="subject.errors && f.submitted">
+                    <div *ngIf="subject.errors['required']">Subject is required</div>
+                    <div *ngIf="subject.errors['minlength']">
+                      Subject must be at least 5 characters
+                    </div>
+                  </div>
+                </div>
+    
 
             <div class="form-group">
                 <label for="subject">Message Body</label>
                 <input type="text" class="form-control" name="msgBody" [(ngModel)]="form.msgBody" required
                     minlength="5" #msgBody="ngModel" />
-            </div>
+                <div class="alert alert-danger" role="alert" *ngIf="msgBody.errors && f.submitted">
+                    <div *ngIf="msgBody.errors['required']">Message is required</div>
+                    <div *ngIf="msgBody.errors['minlength']">
+                      Message must be at least 5 characters
+                    </div>
+                  </div>
+                </div>
 
             <div class="form-group">
-                <button class="btn btn-primary btn-block">
+                <button style="width: 100px;" class="btn btn-primary btn-block">
                     Send
                 </button>
             </div>
